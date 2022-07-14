@@ -19,4 +19,8 @@ public class ChamadoService {
 		Optional<Chamado> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectnotFoundException("Objeto não encontrado" + id));
 	}
+
+	public java.util.List<Chamado> findAll() {
+		return repository.findAll();
+	}
 }
