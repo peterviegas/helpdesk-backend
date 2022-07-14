@@ -1,5 +1,6 @@
 package com.peter.helpdesk.services;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -34,15 +35,18 @@ public class ChamadoService {
 	public java.util.List<Chamado> findAll() {
 		return repository.findAll();
 	}
-/*
-	public Chamado create(@Valid ChamadoDTO objDTO) {
-		return repository.save(newChamado(objDTO));
-	}*/
 	
 	public Chamado create(@Valid ChamadoDTO objDTO) {
 		return repository.save(newChamado(objDTO));
 	}
 	
+
+	public Chamado update(Integer id, @Valid ChamadoDTO objDTO) {
+		objDTO.setId(id);
+		Chamado oldObj = findById(id);
+		oldObj = newChamado(objDTO);
+		return repository.save(oldObj);
+	}
 	
 	//Validação se existe o Técnico (Vai ser utilizado para criação e atualização
 	private Chamado newChamado(ChamadoDTO obj) {
@@ -53,6 +57,10 @@ public class ChamadoService {
 		
 		if(obj.getId() != null) {
 			chamado.setId(obj.getId());
+		}
+		
+		if(obj.getStatus().equals(2)) {
+			chamado.setDataFechamento(LocalDate.now());
 		}
 		
 		chamado.setTecnico(tecnico);
