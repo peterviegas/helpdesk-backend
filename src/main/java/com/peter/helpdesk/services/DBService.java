@@ -1,6 +1,9 @@
 package com.peter.helpdesk.services;
 
 import java.util.Arrays;
+import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -52,5 +55,55 @@ public class DBService {
 		tecnicoRepository.saveAll(Arrays.asList(tec1, tec2, tec3, tec4, tec5));
 		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3, cli4, cli5));
 		chamadoRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
+		
+		//Update technician
+		Optional<Tecnico> optionalTecObj = tecnicoRepository.findById(tec2.getId());
+
+		if (optionalTecObj.isPresent()) {
+		    Tecnico tecObj = optionalTecObj.get();
+		    tecObj.setCpf("764.430.020-16");
+		    tecObj.setEmail("tadeu.abuquerque@gmail.com");
+		    tecObj.setSenha("secret");
+		    tecObj.setNome("Tadeu Abuquerque");
+		    tecnicoRepository.save(tecObj);
+		    
+		} else {
+		    throw new EntityNotFoundException("Technician not found with ID: " + tec2.getId());
+		}
+		
+		//Update customer
+		Optional<Cliente> optionalObjCli = clienteRepository.findById(cli1.getId());
+		
+		if(optionalObjCli.isPresent()) {
+			Cliente cliObj = optionalObjCli.get();
+			cliObj.setCpf("349.744.220-81");
+			cliObj.setEmail(null);
+			cliObj.setSenha(null);
+			cliObj.setNome("Thomas Grany");
+			clienteRepository.save(cliObj);
+		} else {
+			throw new EntityNotFoundException("Customer not found with ID: " + cli1.getId());
+		}
+		
+		//Update ticket
+		Optional<Chamado> optionalObjTicket = chamadoRepository.findById(c1.getId());
+		
+		if(optionalObjTicket.isPresent()) {
+			Chamado chamadoObj = optionalObjTicket.get();
+			chamadoObj.setCliente(cli5);
+			chamadoObj.setObservacoes("Update Test");
+			chamadoObj.setPrioridade(Prioridade.ALTA);
+			chamadoObj.setStatus(Status.ANDAMENTO);
+			chamadoObj.setTecnico(tec2);
+			chamadoObj.setTitulo("Test Update work");
+			
+			chamadoRepository.save(chamadoObj);
+		} else {
+			throw new EntityNotFoundException("Customer not found with ID: " + c1.getId());
+		}
+		
+		//Delete
+		tecnicoRepository.delete(tec5);
+		clienteRepository.delete(cli4);
 	}
 }
