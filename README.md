@@ -136,6 +136,16 @@ Here is an example of the test coverage:
 
 ---
 
+#### Sample create
+![code](code/create.PNG)
+
+#### Sample update and delete
+![code](code/updateDelete.PNG)
+
+#### Sample using skill default with conditional
+![code](code/skill.PNG)
+
+
 #### 🤝 Contributing
 I welcome contributions to this project! Here are a few ways you can get involved:
 
