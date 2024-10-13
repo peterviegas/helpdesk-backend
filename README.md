@@ -42,7 +42,7 @@ Here is an example of the integration architecture:
 #### 🚀 Installation
 To set up the project locally, download the necessary tools:
 - [Spring Tools Suite](https://spring.io/tools)
-- [Java JDK 11 LTS](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [Java JDK 21.0.4 LTS](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [Heroku Account](https://www.heroku.com/) (Note: Heroku was used initially but is no longer free.)
 - [Postman](https://www.postman.com/downloads/)
 
