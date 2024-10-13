@@ -1,6 +1,6 @@
 ## Service Order Management System - Backend
 
-Development of a REST API using Java with Spring Boot 4.22.0 and MySQL database. The project employs JPA with Hibernate for data validation, exception handling, and proper use of the HTTP protocol in the REST standard.
+Development of a REST API using Java with Spring Boot 2.3.12 and MySQL database. The project employs JPA with Hibernate for data validation, exception handling, and proper use of the HTTP protocol in the REST standard.
 
 #### 📄 Table of Contents
 - [About](#about)
@@ -22,9 +22,7 @@ This is a web application implementing a CRUD (Create, Read, Update, and Delete)
 
 #### Features
 - REST API developed using the **Spring Boot Framework 4.22.0**.
-- Angular framework used to test the API. 
-- Deployment of the REST API to the cloud via the Heroku platform.
-- Integration between the API and frontend, both hosted in the cloud.
+- Deployment of the REST API to the cloud via the Heroku platform. (Note: Heroku was used initially but is no longer free.)
 
 Here is an example of the integration architecture:
 
@@ -82,7 +80,11 @@ Tests were created to cover the core functionalities of the project. The paramet
 
 Here is an example of the test coverage:
 
-![Test Coverage](images/test_coverage.png)
+![DataModel](dataModel/dataModel.PNG)
+
+![DataModel](postman/Postman.PNG)
+
+
 
 ---
 
