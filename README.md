@@ -2,7 +2,7 @@
 
 Development of a REST API using Java with Spring Boot 4.22.0 and MySQL database. The project employs JPA with Hibernate for data validation, exception handling, and proper use of the HTTP protocol in the REST standard.
 
-### Table of Contents
+#### Table of Contents
 - [About](#about)
 - [Features](#features)
 - [Installation](#installation)
@@ -11,27 +11,29 @@ Development of a REST API using Java with Spring Boot 4.22.0 and MySQL database.
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-### About
+#### About
 This is a web application implementing a CRUD (Create, Read, Update, and Delete) system for simple Service Order Management.
 
-### Features
+#### Features
 - REST API developed using the **Spring Boot Framework 4.22.0**.
-- Angular framework used to test the API.
+- Angular framework used to test the API. 
 - Deployment of the REST API to the cloud via the Heroku platform.
 - Integration between the API and frontend, both hosted in the cloud.
 
-### Installation
+#### Installation
 To set up the project locally, download the necessary tools:
 - [Spring Tools Suite](https://spring.io/tools)
 - [Java JDK 11 LTS](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [VSCode](https://code.visualstudio.com/download)
-- [Heroku Account](https://www.heroku.com/)
+- [Heroku Account](https://www.heroku.com/)Note: I initially used Heroku when I created this project in 2023. However, Heroku is no longer free.
 - [Postman](https://www.postman.com/downloads/)
 
-### Usage
+#### Usage
 To run the project:
 1. Clone the repository.
 2. Import the project into your workspace using Spring Boot.
+3. [Download the Postman collection here](postman/Help Desk.postman_collection.json)
+4. Run (optional) the **Angular** frontend application, which is built to consume the REST API efficiently. https://github.com/peterviegas/helpdesk-front
 
 A brief overview of the project structure:
 
@@ -44,7 +46,7 @@ A brief overview of the project structure:
 - **Security:** Contains security configurations and protocols.
 - **Services:** Implements business logic, processes requests from resources, and interacts with the database.
 
-### Contributing
+#### Contributing
 I welcome contributions to this project! If you want to contribute, here are a few ways to get involved:
 
 - **Reporting Bugs:** If you encounter bugs or issues, feel free to open an issue on our GitHub repository. Please provide as much detail as possible to help us resolve the problem quickly.
@@ -53,8 +55,8 @@ I welcome contributions to this project! If you want to contribute, here are a f
 
 For more information on how to contribute, refer to our Contribution Guidelines.
 
-### License
+#### License
 This project is not licensed and is public domain. Feel free to use it as you wish.
 
-### Acknowledgments
+#### Acknowledgments
 I would like to express my gratitude to **Vandir Cezar**, whose course on the Udemy platform provided me with valuable knowledge and insights. This project wouldn't have been possible without the comprehensive training and guidance provided by Vandir. Thank you for your dedication and expertise.
