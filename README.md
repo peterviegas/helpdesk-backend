@@ -2,17 +2,23 @@
 
 Development of a REST API using Java with Spring Boot 4.22.0 and MySQL database. The project employs JPA with Hibernate for data validation, exception handling, and proper use of the HTTP protocol in the REST standard.
 
-#### Table of Contents
+#### 📄 Table of Contents
 - [About](#about)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Test Coverage](#test-coverage)
+- [Additional Information](#additional-information)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
+---
+
 #### About
 This is a web application implementing a CRUD (Create, Read, Update, and Delete) system for simple Service Order Management.
+
+---
 
 #### Features
 - REST API developed using the **Spring Boot Framework 4.22.0**.
@@ -20,43 +26,116 @@ This is a web application implementing a CRUD (Create, Read, Update, and Delete)
 - Deployment of the REST API to the cloud via the Heroku platform.
 - Integration between the API and frontend, both hosted in the cloud.
 
-#### Installation
+Here is an example of the integration architecture:
+
+![API Integration](images/api_integration.png)
+
+---
+
+#### 🚀 Installation
 To set up the project locally, download the necessary tools:
 - [Spring Tools Suite](https://spring.io/tools)
 - [Java JDK 11 LTS](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [VSCode](https://code.visualstudio.com/download)
-- [Heroku Account](https://www.heroku.com/)Note: I initially used Heroku when I created this project in 2023. However, Heroku is no longer free.
+- [Heroku Account](https://www.heroku.com/) (Note: Heroku was used initially but is no longer free.)
 - [Postman](https://www.postman.com/downloads/)
+
+Example of the environment setup:
+
+![Environment Setup](images/environment_setup.png)
+
+---
 
 #### Usage
 To run the project:
 1. Clone the repository.
 2. Import the project into your workspace using Spring Boot.
-3. [Download the Postman collection here](postman/Help Desk.postman_collection.json)
-4. Run (optional) the **Angular** frontend application, which is built to consume the REST API efficiently. https://github.com/peterviegas/helpdesk-front
+3. [Download the Postman collection here](postman/HelpDesk.postman_collection.json).
+4. (Optional) Run the **Angular** frontend application, built to consume the REST API efficiently. Check it out at: https://github.com/peterviegas/helpdesk-front.
 
-A brief overview of the project structure:
+Project structure overview:
 
 - **Config:** Handles application configuration, including database connections and security settings.
 - **Domain:** Contains domain models and interfaces.
 - **DTO:** Data Transfer Objects used for communication between the frontend and backend.
 - **Enums:** Defines enumeration types and auxiliary tables.
 - **Repositories:** Manages database interactions, processes requests from services, and returns data.
-- **Resources:** Components that handle incoming requests from the frontend and pass them to the relevant services.
+- **Resources:** Handles incoming requests and passes them to relevant services.
 - **Security:** Contains security configurations and protocols.
-- **Services:** Implements business logic, processes requests from resources, and interacts with the database.
+- **Services:** Implements business logic, processes requests, and interacts with the database.
 
-#### Contributing
-I welcome contributions to this project! If you want to contribute, here are a few ways to get involved:
+---
 
-- **Reporting Bugs:** If you encounter bugs or issues, feel free to open an issue on our GitHub repository. Please provide as much detail as possible to help us resolve the problem quickly.
-- **Suggesting Features:** Have ideas for new features or improvements? Open an issue and share your suggestions with us. We appreciate your feedback and creativity!
-- **Submitting Pull Requests:** To contribute code, fork the repository, make your changes, and submit a pull request. We will review your changes and merge them if they align with the project's objectives.
+#### 🧪 Test Coverage
+Tests were created to cover the core functionalities of the project. The parameters are passed via the **application.properties** file and include:
 
-For more information on how to contribute, refer to our Contribution Guidelines.
+- Creating tables like Customer, Technician, and Ticket in the in-memory **H2** database for testing.
+- Executing the following features:
+  - Creating technicians.
+  - Updating a technician.
+  - Creating customers.
+  - Updating a customer.
+  - Creating **Tickets**.
+  - Updating a Ticket.
+  - Deleting a technician.
+  - Deleting a customer.
 
-#### License
-This project is not licensed and is public domain. Feel free to use it as you wish.
+Here is an example of the test coverage:
 
-#### Acknowledgments
-I would like to express my gratitude to **Vandir Cezar**, whose course on the Udemy platform provided me with valuable knowledge and insights. This project wouldn't have been possible without the comprehensive training and guidance provided by Vandir. Thank you for your dedication and expertise.
+![Test Coverage](images/test_coverage.png)
+
+---
+
+#### ℹ️ Additional Information
+
+#### Customers
+##### POST - CPF Validation
+- Validates CPF according to Brazilian rules.
+- Checks if the CPF already exists to avoid duplicating a customer.
+- Validates email format and ensures it doesn't already exist in the database.
+
+##### PUT - CPF Validation
+- Checks for existing CPF during updates. If attempting to change to an already registered CPF, it returns an error.
+- Validates email and ensures it isn't duplicated when updating a customer.
+
+##### DELETE - Customer Deletion
+- If a customer has any **Tickets**, deletion is not allowed.
+
+Here is a sample flowchart of the customer validation process:
+
+![Customer Validation](images/customer_validation.png)
+
+---
+
+#### 📄 Ticket
+##### POST - Additional Information:
+- Uses an **enum** type for priority and status.
+- Links seller and customer by their IDs through related tables.
+
+##### PUT - Update PO
+- Example of passing only the body for updating. The customer ID is included in the body instead of being a parameter in the URL.
+
+Here is an example of how the enum for PO works:
+
+![Enum for PO](images/po_enum.png)
+
+---
+
+#### 🤝 Contributing
+I welcome contributions to this project! Here are a few ways you can get involved:
+
+- **Reporting Bugs:** If you find any bugs, open an issue on the GitHub repository. Provide as much detail as possible to help us resolve the problem.
+- **Suggesting Features:** Have new ideas or improvements? Open an issue to share your suggestions with us.
+- **Submitting Pull Requests:** To contribute code, fork the repository, make your changes, and submit a pull request. We will review your contributions.
+
+Refer to the Contribution Guidelines for more information.
+
+---
+
+#### 📜 License
+This project is in the public domain. Feel free to use it as you wish.
+
+---
+
+#### 🙏 Acknowledgments
+I would like to express my gratitude to **Vandir Cezar**, whose Udemy course provided me with invaluable knowledge. This project wouldn't have been possible without his comprehensive training and guidance.
