@@ -21,14 +21,14 @@ This is a web application implementing a CRUD (Create, Read, Update, and Delete)
 ---
 
 #### Features
-- REST API developed using the **Spring Boot Framework 4.22.0**.
+- REST API developed using **Spring Boot 2.3.12**.
 - Deployment of the REST API to the cloud via the Heroku platform. (Note: Heroku was used initially but is no longer free.)
 - Implements **Object-Oriented Programming (OOP)** principles such as Polymorphism, Inheritance, and Encapsulation.
-- Utilizes **Spring MVC** to structure and manage the HTTP requests and responses.
+- Utilizes **Spring MVC** to structure and manage HTTP requests and responses.
 - Integrates **Spring Security** for authentication and authorization.
 - Employs **Spring Data JPA** to manage data persistence and interact with the MySQL database.
 - Uses **JWT (JSON Web Tokens)** for secure token-based authentication.
-- Implements authentication and authorization.
+
 
 Here is an example of the integration architecture:
 
@@ -67,33 +67,14 @@ Project structure overview:
 - **Security:** Contains security configurations and protocols.
 - **Services:** Implements business logic, processes requests, and interacts with the database.
 
-
-├── Config  
-│   └── Handles application configuration, including database connections and security settings.  
-├── Domain  
-│   └── Contains domain models and interfaces.  
-├── DTO  
-│   └── Data Transfer Objects used for communication between the frontend and backend.  
-├── Enums  
-│   └── Defines enumeration types and auxiliary tables.  
-├── Repositories  
-│   └── Manages database interactions, processes requests from services, and returns data.  
-├── Resources  
-│   └── Handles incoming requests and passes them to relevant services.  
-├── Security  
-│   └── Contains security configurations and protocols.  
-└── Services  
-    └── Implements business logic, processes requests, and interacts with the database.  
-
-
-
-
+![DataModel](architecture/tree.PNG)
+ 
 ---
 
 #### 🧪 Test Coverage
 Tests were created to cover the core functionalities of the project. The parameters are passed via the **application.properties** file and include:
 
-- Creating tables like Customer, Technician, and Ticket in the in-memory **H2** database for testing.
+- The creation of tables such as Customer, Technician, and Ticket is performed in an in-memory **H2** database during the testing phase to facilitate testing without affecting the production database.
 - Executing the following features:
   - Creating technicians.
   - Updating a technician.
@@ -109,7 +90,6 @@ Here is an example of the test coverage:
 ![DataModel](dataModel/dataModel.PNG)
 
 ![DataModel](postman/Postman.PNG)
-
 
 
 ---
@@ -129,23 +109,30 @@ Here is an example of the test coverage:
 ##### DELETE - Customer Deletion
 - If a customer has any **Tickets**, deletion is not allowed.
 
-Here is a sample flowchart of the customer validation process:
+---
+#### Technicians
+##### PUT - CPF Validation
+- Validates the CPF according to Brazilian rules.
+- Checks if the CPF already exists in the database to avoid duplicating of Technician.
+- Checks if the e-mail already exists in the database to avoid duplication of Technician.
 
-![Customer Validation](images/customer_validation.png)
+##### POST - Seller Update
+- Receives the ID as a parameter and the body contains the information to be updated.
+- If an invalid or already registered CPF is provided, the system informs that the CPF cannot be changed.
+- If an invalid or already registered e-mail is provided, the system informs that the email cannot be changed.
+
+##### DELETE - Seller Deletion
+- Checks if the seller has any **Purchase Orders (PO)** linked to their ID. If they do, deletion is not allowed.
 
 ---
 
-#### 📄 Ticket
+#### 📄 Tickets
 ##### POST - Additional Information:
 - Uses an **enum** type for priority and status.
 - Links seller and customer by their IDs through related tables.
 
 ##### PUT - Update PO
 - Example of passing only the body for updating. The customer ID is included in the body instead of being a parameter in the URL.
-
-Here is an example of how the enum for PO works:
-
-![Enum for PO](images/po_enum.png)
 
 ---
 
