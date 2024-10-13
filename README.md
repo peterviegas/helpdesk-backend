@@ -23,18 +23,20 @@ This is a web application implementing a CRUD (Create, Read, Update, and Delete)
 #### Features
 - REST API developed using the **Spring Boot Framework 4.22.0**.
 - Deployment of the REST API to the cloud via the Heroku platform. (Note: Heroku was used initially but is no longer free.)
-- Implements Object-Oriented Programming (OOP) principles such as Polymorphism, Inheritance, and Encapsulation.
-- Utilizes Spring MVC to structure and manage the HTTP requests and responses.
-- Integrates Spring Security for authentication and authorization.
-- Employs Spring Data JPA to manage data persistence and interact with the MySQL database.
-- Uses JWT (JSON Web Tokens) for secure token-based authentication.
+- Implements **Object-Oriented Programming (OOP)** principles such as Polymorphism, Inheritance, and Encapsulation.
+- Utilizes **Spring MVC** to structure and manage the HTTP requests and responses.
+- Integrates **Spring Security** for authentication and authorization.
+- Employs **Spring Data JPA** to manage data persistence and interact with the MySQL database.
+- Uses **JWT (JSON Web Tokens)** for secure token-based authentication.
 - Implements authentication and authorization.
 
 Here is an example of the integration architecture:
 
-![API Integration](architecture/architecture.webp)
+<img src="architecture/architecture.webp" alt="API Integration" width="50%"/>
 
-![API Integration](architecture/architecture.webp)
+<img src="architecture/JWT.png" alt="JWT" width="50%"/>
+
+<img src="architecture/debugger.png" alt="Debugger" width="50%"/>
 
 ---
 
@@ -42,13 +44,8 @@ Here is an example of the integration architecture:
 To set up the project locally, download the necessary tools:
 - [Spring Tools Suite](https://spring.io/tools)
 - [Java JDK 11 LTS](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [VSCode](https://code.visualstudio.com/download)
 - [Heroku Account](https://www.heroku.com/) (Note: Heroku was used initially but is no longer free.)
 - [Postman](https://www.postman.com/downloads/)
-
-Example of the environment setup:
-
-![Environment Setup](images/environment_setup.png)
 
 ---
 
@@ -69,6 +66,27 @@ Project structure overview:
 - **Resources:** Handles incoming requests and passes them to relevant services.
 - **Security:** Contains security configurations and protocols.
 - **Services:** Implements business logic, processes requests, and interacts with the database.
+
+
+├── Config  
+│   └── Handles application configuration, including database connections and security settings.  
+├── Domain  
+│   └── Contains domain models and interfaces.  
+├── DTO  
+│   └── Data Transfer Objects used for communication between the frontend and backend.  
+├── Enums  
+│   └── Defines enumeration types and auxiliary tables.  
+├── Repositories  
+│   └── Manages database interactions, processes requests from services, and returns data.  
+├── Resources  
+│   └── Handles incoming requests and passes them to relevant services.  
+├── Security  
+│   └── Contains security configurations and protocols.  
+└── Services  
+    └── Implements business logic, processes requests, and interacts with the database.  
+
+
+
 
 ---
 
