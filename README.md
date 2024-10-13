@@ -82,7 +82,9 @@ Tests were created to cover the core functionalities of the project. The paramet
 
 Here is an example of the test coverage:
 
-![Test Coverage](images/test_coverage.png)
+![DataModel](dataModel/dataModel.PNG)
+
+
 
 ---
 
