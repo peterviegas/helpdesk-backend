@@ -21,14 +21,14 @@ This is a web application implementing a CRUD (Create, Read, Update, and Delete)
 ---
 
 #### Features
-- REST API developed using the **Spring Boot Framework 4.22.0**.
+- REST API developed using **Spring Boot 2.3.12**.
 - Deployment of the REST API to the cloud via the Heroku platform. (Note: Heroku was used initially but is no longer free.)
 - Implements **Object-Oriented Programming (OOP)** principles such as Polymorphism, Inheritance, and Encapsulation.
-- Utilizes **Spring MVC** to structure and manage the HTTP requests and responses.
+- Utilizes **Spring MVC** to structure and manage HTTP requests and responses.
 - Integrates **Spring Security** for authentication and authorization.
 - Employs **Spring Data JPA** to manage data persistence and interact with the MySQL database.
 - Uses **JWT (JSON Web Tokens)** for secure token-based authentication.
-- Implements authentication and authorization.
+
 
 Here is an example of the integration architecture:
 
@@ -74,7 +74,7 @@ Project structure overview:
 #### 🧪 Test Coverage
 Tests were created to cover the core functionalities of the project. The parameters are passed via the **application.properties** file and include:
 
-- Creating tables like Customer, Technician, and Ticket in the in-memory **H2** database for testing.
+- The creation of tables such as Customer, Technician, and Ticket is performed in an in-memory **H2** database during the testing phase to facilitate testing without affecting the production database.
 - Executing the following features:
   - Creating technicians.
   - Updating a technician.
@@ -90,6 +90,7 @@ Here is an example of the test coverage:
 ![DataModel](dataModel/dataModel.PNG)
 
 ![DataModel](postman/Postman.PNG)
+
 
 ---
 
@@ -110,11 +111,10 @@ Here is an example of the test coverage:
 
 ---
 #### Technicians
-
 ##### PUT - CPF Validation
 - Validates the CPF according to Brazilian rules.
-- Checks if the CPF already exists in the database to avoid duplicating a Technicians.
-- Checks if the e-mail already exists in the database to avoid duplication a Technicians.
+- Checks if the CPF already exists in the database to avoid duplicating of Technician.
+- Checks if the e-mail already exists in the database to avoid duplication of Technician.
 
 ##### POST - Seller Update
 - Receives the ID as a parameter and the body contains the information to be updated.
@@ -126,7 +126,7 @@ Here is an example of the test coverage:
 
 ---
 
-#### 📄 Ticket
+#### 📄 Tickets
 ##### POST - Additional Information:
 - Uses an **enum** type for priority and status.
 - Links seller and customer by their IDs through related tables.
