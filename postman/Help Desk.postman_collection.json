@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "21f3041a-372a-435b-b158-c220454ca111",
+		"name": "Help Desk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21608893",
+		"_collection_link": "https://blue-crater-479006.postman.co/workspace/Team-Workspace~014b05a5-8552-403b-8cb4-371e7f49cd7f/collection/21608893-21f3041a-372a-435b-b158-c220454ca111?action=share&source=collection_link&creator=21608893"
+	},
+	"item": [
+		{
+			"name": "Tecnico",
+			"item": [
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/tecnicos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tecnicos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/tecnicos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tecnicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"nome\": \"Richard Stallman\",\r\n    \"cpf\": \"664.898.110-57\",\r\n    \"email\": \"stallman2@mail.com\",\r\n    \"senha\": \"123\",\r\n    \"dataCriacao\": \"13/07/2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/tecnicos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tecnicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"nome\": \"Richard Stallman\",\r\n    \"cpf\": \"903.347.070-56\",\r\n    \"email\": \"stallman@mail.com\",\r\n    \"senha\": \"123\",\r\n    \"dataCriacao\": \"13/07/2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/tecnicos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tecnicos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/tecnicos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tecnicos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/clientes/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/clientes/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chamado",
+			"item": [
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/chamados/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chamados",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/chamados",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chamados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"id\": 2,\r\n    \"dataAbertura\": \"13/10/2024\",\r\n    \"dataFechamento\": null,\r\n    \"prioridade\": 0,\r\n    \"status\": 0,\r\n    \"titulo\": \"Chamado 2\",\r\n    \"observacoes\": \"Teste chamado 2\",\r\n    \"tecnico\": 1,\r\n    \"cliente\": 7,\r\n    \"nomeTecnico\": \"Valdir Cezar\",\r\n    \"nomeCliente\": \"Marie Curie\"   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/chamados/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chamados",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"valdir@gmail.com\",\r\n    \"senha\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

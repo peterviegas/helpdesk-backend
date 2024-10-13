@@ -49,17 +49,22 @@ public abstract class Pessoa implements Serializable {
 	
 	public Pessoa() {
 		super();
-		addPerfil(Perfil.CLIENTE);
 	}
 
-	public Pessoa(Integer id, String nome, String cpf, String email, String senha) {
+	public Pessoa(Integer id, String nome, String cpf, String email, String senha, boolean isTecnico) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
 		this.senha = senha;
-		addPerfil(Perfil.CLIENTE);
+		
+		// Adiciona perfil baseado na condição
+	    if (isTecnico) {
+	        addPerfil(Perfil.TECNICO);  // Define perfil de Técnico
+	    } else {
+	        addPerfil(Perfil.CLIENTE);  // Define perfil de Cliente por padrão
+	    }
 	}
 
 	public Integer getId() {
@@ -117,24 +122,6 @@ public abstract class Pessoa implements Serializable {
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-
-	/*
-	@Override
-	public int hashCode() {
-		return Objects.hash(cpf, id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pessoa other = (Pessoa) obj;
-		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id);
-	}*/
 	
 	@Override
 	public int hashCode() {

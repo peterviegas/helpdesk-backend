@@ -3,7 +3,9 @@ package com.peter.helpdesk.services;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
+import javax.transaction.Transactional;
+import javax.validation.ConstraintViolationException;
+import javax.validation.ValidationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -48,14 +50,24 @@ public class ClienteService {
 		return repository.save(newObj);
 	}
 
-	public Cliente update(Integer id, @Valid ClienteDTO objDTO) {
-		objDTO.setId(id);
-		Cliente oldObj = findById(id);
-		
-		validaPorCpfEEmail(objDTO);
-		oldObj = new Cliente(objDTO);
-		return repository.save(oldObj);
-	}
+	@Transactional
+    public Cliente update(Integer id, ClienteDTO objDTO) {
+        try {
+            Cliente cliente = findById(id);
+            updateData(cliente, objDTO);
+
+            return repository.save(cliente);  // Aqui ocorre a validação e o commit da transação
+        } catch (ConstraintViolationException ex) {
+            // Lança uma exceção mais clara ou retorna um erro de validação para o controlador
+            throw new ValidationException("Erro de validação: " + ex.getConstraintViolations().iterator().next().getMessage());
+        }
+    }
+
+    private void updateData(Cliente cliente, ClienteDTO objDTO) {
+        // Atualiza os dados do cliente
+        cliente.setNome(objDTO.getNome());
+        cliente.setCpf(objDTO.getCpf());  // A validação do CPF ocorre aqui
+    }
 
 	public void delete(Integer id) {
 		Cliente obj = findById(id);
@@ -77,6 +89,4 @@ public class ClienteService {
 			throw new DataIntegrityViolationException("E-mail já cadastrado no sistema!");
 		}	
 	}
-
-
 }
