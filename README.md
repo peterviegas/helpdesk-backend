@@ -31,9 +31,9 @@ This is a web application implementing a CRUD (Create, Read, Update, and Delete)
 
 Here is an example of the integration architecture:
 
-<img src="architecture/architecture.webp" alt="API Integration" width="50%"/>
+<img src="architecture/architecture.webp" alt="API Integration" width="60%"/>
 
-<img src="architecture/JWT.png" alt="JWT" width="50%"/>
+<img src="architecture/JWT.png" alt="JWT" width="60%"/>
 
 <img src="architecture/debugger.png" alt="Debugger" width="50%"/>
 
