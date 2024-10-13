@@ -67,27 +67,8 @@ Project structure overview:
 - **Security:** Contains security configurations and protocols.
 - **Services:** Implements business logic, processes requests, and interacts with the database.
 
-
-├── Config  
-│   └── Handles application configuration, including database connections and security settings.  
-├── Domain  
-│   └── Contains domain models and interfaces.  
-├── DTO  
-│   └── Data Transfer Objects used for communication between the frontend and backend.  
-├── Enums  
-│   └── Defines enumeration types and auxiliary tables.  
-├── Repositories  
-│   └── Manages database interactions, processes requests from services, and returns data.  
-├── Resources  
-│   └── Handles incoming requests and passes them to relevant services.  
-├── Security  
-│   └── Contains security configurations and protocols.  
-└── Services  
-    └── Implements business logic, processes requests, and interacts with the database.  
-
-
-
-
+![DataModel](architecture/tree.PNG)
+ 
 ---
 
 #### 🧪 Test Coverage
@@ -110,8 +91,6 @@ Here is an example of the test coverage:
 
 ![DataModel](postman/Postman.PNG)
 
-
-
 ---
 
 #### ℹ️ Additional Information
@@ -129,9 +108,21 @@ Here is an example of the test coverage:
 ##### DELETE - Customer Deletion
 - If a customer has any **Tickets**, deletion is not allowed.
 
-Here is a sample flowchart of the customer validation process:
+---
+#### Technicians
 
-![Customer Validation](images/customer_validation.png)
+##### PUT - CPF Validation
+- Validates the CPF according to Brazilian rules.
+- Checks if the CPF already exists in the database to avoid duplicating a Technicians.
+- Checks if the e-mail already exists in the database to avoid duplication a Technicians.
+
+##### POST - Seller Update
+- Receives the ID as a parameter and the body contains the information to be updated.
+- If an invalid or already registered CPF is provided, the system informs that the CPF cannot be changed.
+- If an invalid or already registered e-mail is provided, the system informs that the email cannot be changed.
+
+##### DELETE - Seller Deletion
+- Checks if the seller has any **Purchase Orders (PO)** linked to their ID. If they do, deletion is not allowed.
 
 ---
 
@@ -142,10 +133,6 @@ Here is a sample flowchart of the customer validation process:
 
 ##### PUT - Update PO
 - Example of passing only the body for updating. The customer ID is included in the body instead of being a parameter in the URL.
-
-Here is an example of how the enum for PO works:
-
-![Enum for PO](images/po_enum.png)
 
 ---
 
