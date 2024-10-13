@@ -29,7 +29,6 @@ This is a web application implementing a CRUD (Create, Read, Update, and Delete)
 - Employs **Spring Data JPA** to manage data persistence and interact with the MySQL database.
 - Uses **JWT (JSON Web Tokens)** for secure token-based authentication.
 
-
 Here is an example of the integration architecture:
 
 <img src="architecture/architecture.webp" alt="API Integration" width="50%"/>
@@ -91,60 +90,61 @@ Here is an example of the test coverage:
 
 ![DataModel](postman/Postman.PNG)
 
-
 ---
 
 #### ℹ️ Additional Information
 
-#### Customers
-##### POST - CPF Validation
+##### Customers
+###### POST - CPF Validation
 - Validates CPF according to Brazilian rules.
 - Checks if the CPF already exists to avoid duplicating a customer.
 - Validates email format and ensures it doesn't already exist in the database.
 
-##### PUT - CPF Validation
+###### PUT - CPF Validation
 - Checks for existing CPF during updates. If attempting to change to an already registered CPF, it returns an error.
 - Validates email and ensures it isn't duplicated when updating a customer.
 
-##### DELETE - Customer Deletion
+###### DELETE - Customer Deletion
 - If a customer has any **Tickets**, deletion is not allowed.
 
 ---
-#### Technicians
-##### PUT - CPF Validation
+
+##### Technicians
+###### PUT - CPF Validation
 - Validates the CPF according to Brazilian rules.
 - Checks if the CPF already exists in the database to avoid duplicating of Technician.
 - Checks if the e-mail already exists in the database to avoid duplication of Technician.
 
-##### POST - Seller Update
+###### POST - Seller Update
 - Receives the ID as a parameter and the body contains the information to be updated.
 - If an invalid or already registered CPF is provided, the system informs that the CPF cannot be changed.
 - If an invalid or already registered e-mail is provided, the system informs that the email cannot be changed.
 
-##### DELETE - Seller Deletion
+###### DELETE - Seller Deletion
 - Checks if the seller has any **Purchase Orders (PO)** linked to their ID. If they do, deletion is not allowed.
 
 ---
 
 #### 📄 Tickets
-##### POST - Additional Information:
+###### POST - Additional Information:
 - Uses an **enum** type for priority and status.
 - Links seller and customer by their IDs through related tables.
 
-##### PUT - Update PO
+###### PUT - Update PO
 - Example of passing only the body for updating. The customer ID is included in the body instead of being a parameter in the URL.
 
 ---
 
-#### Sample create
+#### Sample create in environment test
 ![code](code/create.PNG)
 
-#### Sample update and delete
+#### Sample update and delete in environment test
 ![code](code/updateDelete.PNG)
 
 #### Sample using skill default with conditional
-![code](code/skill.PNG)
+![code](code/Skill.PNG)
 
+---
 
 #### 🤝 Contributing
 I welcome contributions to this project! Here are a few ways you can get involved:
