@@ -72,7 +72,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 2,\r\n    \"nome\": \"Richard Stallman\",\r\n    \"cpf\": \"664.898.110-57\",\r\n    \"email\": \"stallman2@mail.com\",\r\n    \"senha\": \"123\",\r\n    \"dataCriacao\": \"13/07/2022\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Any RR\",\r\n    \"cpf\": \"455.202.800-61\",\r\n    \"email\": \"Anyrr@mail.com\",\r\n    \"senha\": \"123\",\r\n    \"dataCriacao\": \"13/07/2022\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -129,7 +129,7 @@
 				{
 					"name": "delete",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
@@ -138,14 +138,14 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8080/tecnicos/2",
+							"raw": "localhost:8080/tecnicos/12",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"tecnicos",
-								"2"
+								"12"
 							]
 						}
 					},
@@ -208,7 +208,7 @@
 				{
 					"name": "create",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
@@ -216,6 +216,15 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Linus Torvalds Junior\",\r\n    \"cpf\": \"754.130.380-11\",\r\n    \"email\": \"torvaldsjunior2@mail.com\",\r\n    \"senha\": \"123\",\r\n    \"perfil\": [\r\n        1\r\n    ],\r\n    \"dataCriacao\": \"13/10/2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "localhost:8080/clientes",
 							"host": [
@@ -232,7 +241,7 @@
 				{
 					"name": "update",
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
@@ -240,30 +249,15 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "localhost:8080/clientes",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"clientes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{tokenHelpDesk}}",
-								"type": "text"
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6,\r\n    \"nome\": \"Linus Torvaldsddddddddddddddddddddddd\",\r\n    \"cpf\": \"594.387.150-22\",\r\n    \"email\": \"torvalds@mail.com\",\r\n    \"senha\": \"123\",\r\n    \"perfil\": [\r\n        1\r\n    ],\r\n    \"dataCriacao\": \"13/10/2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
 							}
-						],
+						},
 						"url": {
 							"raw": "localhost:8080/clientes/6",
 							"host": [
@@ -273,6 +267,31 @@
 							"path": [
 								"clientes",
 								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenHelpDesk}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/clientes/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"11"
 							]
 						}
 					},
@@ -335,7 +354,7 @@
 				{
 					"name": "create",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
@@ -343,14 +362,23 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dataAbertura\": \"13/10/2024\",\r\n    \"dataFechamento\": null,\r\n    \"prioridade\": 0,\r\n    \"status\": 0,\r\n    \"titulo\": \"Chamado 2\",\r\n    \"observacoes\": \"Teste chamado 2\",\r\n    \"tecnico\": 1,\r\n    \"cliente\": 7,\r\n    \"nomeTecnico\": \"Peter Viegas\",\r\n    \"nomeCliente\": \"Marie Curie\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/clientes",
+							"raw": "localhost:8080/chamados",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"clientes"
+								"chamados"
 							]
 						}
 					},
@@ -402,7 +430,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"valdir@gmail.com\",\r\n    \"senha\": \"123\"\r\n}",
+							"raw": "{\r\n    \"email\": \"peterviegas@outlook.com\",\r\n    \"senha\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
