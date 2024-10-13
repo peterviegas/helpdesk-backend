@@ -23,10 +23,18 @@ This is a web application implementing a CRUD (Create, Read, Update, and Delete)
 #### Features
 - REST API developed using the **Spring Boot Framework 4.22.0**.
 - Deployment of the REST API to the cloud via the Heroku platform. (Note: Heroku was used initially but is no longer free.)
+- Implements Object-Oriented Programming (OOP) principles such as Polymorphism, Inheritance, and Encapsulation.
+- Utilizes Spring MVC to structure and manage the HTTP requests and responses.
+- Integrates Spring Security for authentication and authorization.
+- Employs Spring Data JPA to manage data persistence and interact with the MySQL database.
+- Uses JWT (JSON Web Tokens) for secure token-based authentication.
+- Implements authentication and authorization.
 
 Here is an example of the integration architecture:
 
-![API Integration](images/api_integration.png)
+![API Integration](architecture/architecture.webp)
+
+![API Integration](architecture/architecture.webp)
 
 ---
 
